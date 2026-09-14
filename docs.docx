@@ -11,5 +11,5 @@ Feature Engineering
     - includes min-max, robust, absoulte and mean scaler
 3) Encoding
     - For non numerical columns we can not scale, we need Encoding
-    - For ordinal columns where heirarchy exists -> Ordinal Encoding
+    - For ordinal columns where heirarchy exists -> Ordinal Encoding, Label Encoding
     - For nominal columns where heirarchy does not exist -> One Hot Encoding
