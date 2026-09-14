@@ -1,0 +1,5 @@
+Functionality included in the project:
+1) Standardization class
+    - Create a Standardization object
+    - Call the fit method to find mean,std dev from training data
+    - Use the transform method to transform the respective data

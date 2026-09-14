@@ -18,3 +18,5 @@ ML life cycle
 6. Test the model
 7. Deployment
 
+This project is mostly focused on training part libraries and functions to show my level of understanding of the concepts.
+
