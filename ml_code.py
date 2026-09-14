@@ -56,3 +56,20 @@ class max_abs_scaler():
   def transform(self,dataset):
     dataset = dataset.to_numpy()
     return (dataset/self.max)
+
+class robust_scaler():
+  def __init__(self):
+    self.median = None
+    self.third_quarter = None
+    self.first_quarter = None
+  def fit(self,dataset):
+    dataset = dataset.to_numpy()
+    third_quarter = np.percentile(dataset,75,axis=0)
+    first_quarter = np.percentile(dataset,25,axis=0)
+    median = np.median(dataset,axis=0)
+    self.median = median
+    self.third_quarter = third_quarter 
+    self.first_quarter = first_quarter
+  def transform(self,dataset):
+    dataset = dataset.to_numpy()
+    return (dataset-self.median)/(self.third_quarter-self.first_quarter)
