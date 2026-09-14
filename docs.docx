@@ -3,3 +3,6 @@ Functionality included in the project:
     - Create a Standardization object
     - Call the fit method to find mean,std dev from training data
     - Use the transform method to transform the respective data
+2) Normalization classes
+    - Contains sub-classes for Normalization
+    - includes min-max, robust, absoulte and mean scaler
