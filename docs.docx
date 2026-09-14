@@ -1,4 +1,7 @@
 Functionality included in the project:
+Feature Engineering
+
+
 1) Standardization class
     - Create a Standardization object
     - Call the fit method to find mean,std dev from training data
@@ -6,3 +9,7 @@ Functionality included in the project:
 2) Normalization classes
     - Contains sub-classes for Normalization
     - includes min-max, robust, absoulte and mean scaler
+3) Encoding
+    - For non numerical columns we can not scale, we need Encoding
+    - For ordinal columns where heirarchy exists -> Ordinal Encoding
+    - For nominal columns where heirarchy does not exist -> One Hot Encoding
