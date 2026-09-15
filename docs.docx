@@ -14,3 +14,6 @@ Feature Engineering
     - For ordinal columns where heirarchy exists -> Ordinal Encoding
     - For output columns -> Label Encoding
     - For nominal columns where heirarchy does not exist -> One Hot Encoding
+
+
+Column Transformer helps perform multiple transformations at once
