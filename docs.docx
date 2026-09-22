@@ -1,6 +1,7 @@
 Functionality included in the project:
-Feature Engineering
 
+
+------------------Feature Engineering---------------------------------
 
 1) Standardization class
     - Create a Standardization object
@@ -16,4 +17,9 @@ Feature Engineering
     - For nominal columns where heirarchy does not exist -> One Hot Encoding
 
 
-Column Transformer helps perform multiple transformations at once
+4) Column Transformer helps perform multiple transformations at once
+
+
+--------------ALGORITHMS-------------------------
+
+5) Linear Regression using closed form equations 

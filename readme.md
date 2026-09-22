@@ -21,3 +21,5 @@ ML life cycle
 This project is mostly focused on training part libraries and functions to show my level of understanding of the concepts.
 
 This project includes scaling and encodings and packaging all together to be used by simple column transformer.
+
+ML algorithms like Linear Regression, PCA etc are added further.
