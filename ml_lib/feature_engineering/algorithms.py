@@ -46,15 +46,17 @@ class SGDRegressor():
         self.intercept = 0
         self.coef = np.ones(x_train.shape[1])
         slope_coef = np.ones(x_train.shape[1])
-        for j in range(self.epochs):
-            for idx in range(x_train.shape[0]):
-                j = np.random.randint(0,x_train.shape[0])
+        for i in range(self.epochs):
+            for j in range(x_train.shape[0]):
+                idx = np.random.randint(0,x_train.shape[0])
                 y_i = self.intercept + np.dot(x_train[idx], self.coef)
                 error = y_train[idx] - y_i
                 slope_coef = ((-2)*np.dot(error.T,x_train[idx]))
                 slope_intercept = ((-2) * error)
                 self.coef -= slope_coef * self.learn_rate
                 self.intercept -= slope_intercept * self.learn_rate
+        print(self.coef)
+        print(self.intercept)
         print(self.coef)
         print(self.intercept)
         
