@@ -35,3 +35,30 @@ class GDRegressor():
     def predict(self, x_test):
         y_pred = np.dot(x_test,self.coef)+self.intercept
         return y_pred
+    
+class SGDRegressor():
+    def __init__(self,learn_rate,epochs):
+        self.coef = None
+        self.intercept = None
+        self.learn_rate = learn_rate
+        self.epochs = epochs
+    def fit(self, x_train,y_train):
+        self.intercept = 0
+        self.coef = np.ones(x_train.shape[1])
+        slope_coef = np.ones(x_train.shape[1])
+        for i in range(self.epochs):
+            for row in range(x_train.shape[0]):
+                j = np.random.randint(0,x_train.shape[0])
+                y_i = self.intercept + np.dot(x_train[j], self.coef)
+                error = y_train[j] - y_i
+                slope_coef = ((-2)*np.dot(error.T,x_train[j]))
+                slope_intercept = ((-2) * error)
+                self.coef -= slope_coef * self.learn_rate
+                self.intercept -= slope_intercept * self.learn_rate
+        print(self.coef)
+        print(self.intercept)
+        
+            
+    def predict(self, x_test):
+        y_pred = np.dot(x_test,self.coef)+self.intercept
+        return y_pred
