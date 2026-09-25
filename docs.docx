@@ -22,4 +22,7 @@ Functionality included in the project:
 
 --------------ALGORITHMS-------------------------
 
-5) Linear Regression using closed form equations 
+5) Linear Regression using closed form equations, furhter implemented using
+ - Batch Gradient Descent
+ - Stochastic Gradient Descent
+ - Mini Batch Gradient Descent
