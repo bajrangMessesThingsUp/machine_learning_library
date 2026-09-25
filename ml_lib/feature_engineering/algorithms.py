@@ -1,4 +1,5 @@
 import numpy as np
+import random
 class LinearRegression():
     def __init__(self):
         self.coeff = None
@@ -57,6 +58,35 @@ class SGDRegressor():
                 self.intercept -= slope_intercept * self.learn_rate
         print(self.coef)
         print(self.intercept)
+        print(self.coef)
+        print(self.intercept)
+        
+            
+    def predict(self, x_test):
+        y_pred = np.dot(x_test,self.coef)+self.intercept
+        return y_pred
+
+import random
+class mini_batch_GDRegressor():
+    def __init__(self,learn_rate,epochs,batch_size):
+        self.coef = None
+        self.intercept = None
+        self.learn_rate = learn_rate
+        self.epochs = epochs
+        self.batch_size = batch_size
+    def fit(self, x_train,y_train):
+        self.intercept = 0
+        self.coef = np.ones(x_train.shape[1])
+        slope_coef = np.ones(x_train.shape[1])
+        for i in range(self.epochs):
+            for j in range(int(x_train.shape[0]/self.batch_size)):
+                idx = random.sample(range(x_train.shape[0]),self.batch_size)
+                y_i = self.intercept + np.dot(x_train[idx], self.coef)
+                error = y_train[idx] - y_i
+                slope_coef = ((-2)*np.dot(error.T,x_train[idx]))
+                slope_intercept = ((-2) * np.mean(error))
+                self.coef -= slope_coef * self.learn_rate
+                self.intercept -= slope_intercept * self.learn_rate
         print(self.coef)
         print(self.intercept)
         
