@@ -13,22 +13,25 @@ class LinearRegression():
     
 class GDRegressor():
     def __init__(self,learn_rate,epochs):
-        self.m = None
-        self.b = None
+        self.coef = None
+        self.intercept = None
         self.learn_rate = learn_rate
         self.epochs = epochs
     def fit(self, x_train,y_train):
-        x = x_train.ravel()          # (80,1) -> (80,)
-        self.m = 100
-        self.b = -120
+        self.intercept = 0
+        self.coef = np.ones(x_train.shape[1])
+        slope_coef = np.ones(x_train.shape[1])
         for i in range(self.epochs):
-            error = y_train - self.m*x - self.b
-            slope_b = -2 * np.sum(error)
-            slope_m = -2 * np.sum(error * x)
-            self.m -= slope_m * self.learn_rate
-            self.b -= slope_b * self.learn_rate
-        print(self.m, self.b)
+            y_i = self.intercept + np.dot(x_train, self.coef)
+            error = y_train - y_i
+            slope_coef = ((-2/x_train.shape[0])*np.dot(error.T,x_train))
+            slope_intercept = ((-2) * np.mean(error))
+            self.coef -= slope_coef * self.learn_rate
+            self.intercept -= slope_intercept * self.learn_rate
+        print(self.coef)
+        print(self.intercept)
+        
             
     def predict(self, x_test):
-        x = x_test.ravel()
-        return self.b + self.m*x
+        y_pred = np.dot(x_test,self.coef)+self.intercept
+        return y_pred
